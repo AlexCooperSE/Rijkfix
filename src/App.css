@@ -1,0 +1,99 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* * { border: 1px solid black; } */
+html {
+  font-family:Helvetica,Arial,sans-serif;
+  width: 100%;
+}
+body {
+  padding: 10px;
+  background-color:rgba(0,0,0,.97);
+}
+.main {
+  width: 100%;
+}
+.row-container {
+  border: 1px solid white;
+  width: 100%;
+  height: 14.0625vw;
+  overflow: scroll;
+  background-color:rgba(0,0,0,.97);
+}
+.row {
+  margin: 1.28125vw 0;
+}
+.slider {
+  width: 100%;
+  height: 11.25vw;
+  display: -ms-flexbox;
+  display: flex;
+}
+.item {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  vertical-align: top;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 1.28125vw;
+  -webkit-transition: 450ms all;
+       -o-transition: 450ms all;
+          transition: 450ms all;
+  -webkit-transform-origin: center left;
+      -ms-transform-origin: center left;
+          transform-origin: center left;
+}
+.item-preview {
+  height: 100%;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+}
+.item .item-label {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+  color: #fff;
+  visibility: hidden;
+}
+.item:hover {
+  -webkit-transform:scale(1.25);
+      -ms-transform:scale(1.25);
+          transform:scale(1.25);
+}
+.item:hover .item-label {
+  visibility:visible;
+}
+.item:hover ~ .item {
+  -webkit-transform: translate3d(5.125vw, 0, 0);
+          transform: translate3d(5.125vw, 0, 0);
+}
+.item-error {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  vertical-align: top;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 1.28125vw;
+}
+.item-error-image {
+  height: 100%;
+  z-index: 1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+     -moz-transform: scaleX(-1);
+       -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+      filter: FlipH;
+  -ms-filter: "FlipH";
+}
+.item-error .item-error-label {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+  color: #fff;
+}

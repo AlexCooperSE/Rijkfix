@@ -1,0 +1,26 @@
+{
+  "name": "rijkfix",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "axios-mock-adapter": "1.15.0",
+    "babel-eslint": "8.2.3",
+    "eslint-config-netflix": "2.0.0",
+    "eslint-config-netflix-dea": "4.0.0",
+    "eslint-plugin-react": "7.8.2",
+    "react-scripts": "1.1.4"
+  },
+  "dependencies": {
+    "axios": "0.18.0",
+    "normalize.css": "8.0.0",
+    "react": "16.4.0",
+    "react-dom": "16.4.0",
+    "react-render-debugger": "1.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

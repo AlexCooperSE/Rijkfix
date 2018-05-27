@@ -1,0 +1,10 @@
+{
+  "extends": "netflix-dea",
+  "rules": {
+    "class-methods-use-this": ["error", {
+      "exceptMethods": [
+        "render"
+      ]
+    }]
+  }
+}
