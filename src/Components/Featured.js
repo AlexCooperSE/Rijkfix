@@ -14,6 +14,13 @@ class Featured extends Component {
       this.getObject(this.props.item)
     }
 
+    previewText = (text) => {
+      const len = 25
+      const words = text.split(' ')
+      words.splice(len, words.length - len, '...')
+      return words.join(' ')
+    }
+
     getObject = (item) => {
       const baseUri = 'https://www.rijksmuseum.nl/api/en/collection'
       const defaults = 'format=json&imgonly=true'
@@ -28,7 +35,7 @@ class Featured extends Component {
             artist: object.principalOrFirstMaker,
             img:    object.webImage.url,
             date:   object.dating.presentingDate,
-            desc:   object.plaqueDescriptionEnglish,
+            desc:   this.previewText(object.plaqueDescriptionEnglish),
             materials: Object.values(object.materials).join(', ')
           }
           console.log(object)
@@ -53,6 +60,13 @@ class Featured extends Component {
             'backgroundImage': `url(${this.state.data.img})`,
             'backgroundPosition': this.props.pos
           }}></div>
+          <div className="featured-text">
+            <div className="featured-artist">{this.state.data.artist}</div>
+            <div className="featured-title">{this.state.data.title}</div>
+            <div className="featured-date">{this.state.data.date}</div>
+            <div className="featured-desc">{this.state.data.desc}</div>
+            <div className="featured-materials">{this.state.data.materials}</div>
+          </div>
         </div>
       )
     }

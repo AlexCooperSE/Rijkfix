@@ -14,7 +14,6 @@ export default class App extends Component {
   ]
 
   featured = this.featuredList[Math.floor(Math.random() * 4)]
-  featured = this.featuredList[0]
 
   queryObjects = [
     {
