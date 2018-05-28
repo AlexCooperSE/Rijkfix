@@ -1,23 +1,31 @@
 import React, { Component } from 'react'
 
 import './App.css'
-import Slider from './Components/Slider'
+import RowContainer from './Components/RowContainer'
 
 export default class App extends Component {
 
-  // placeholder method
-  log = (object) => {
-    console.log(object)
+  queryObjects = [
+    { q: 'rembrandt', s: 'relevance' },
+    { toppieces: 'true' }
+  ]
+
+  makeQueryParameters = (obj) => {
+    const encode = encodeURIComponent
+    return Object.keys(obj)
+      .map(key => `${encode(key)}=${encode(obj[key])}`)
+      .join('&')
   }
+
+  contentRows = this.queryObjects.map((queryObject,index) =>{
+    console.log(this.makeQueryParameters(queryObject))
+    return <RowContainer key={`row${index}`} query={this.makeQueryParameters(queryObject)} />
+  })
 
   render() {
     return (
       <div className="main">
-        <div className="row-container">
-          <div className="row">
-            <Slider query="rembrandt" />
-          </div>
-        </div>
+        {this.contentRows}
       </div>
     )
   }

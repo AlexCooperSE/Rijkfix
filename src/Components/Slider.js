@@ -19,7 +19,11 @@ class Slider extends Component {
     }
 
     getObjects = (query) => {
-      axios.get(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&key=${this.apiKey}&format=json`)
+      const baseUri = 'https://www.rijksmuseum.nl/api/en/collection'
+      const defaults = 'format=json&imgonly=true'
+      const requestUri = `${baseUri}?key=${this.apiKey}&${defaults}&${query}`
+      console.log(requestUri)
+      axios.get(requestUri)
         .then(response => {
           const objects = response.data.artObjects.map(artObject => {
             const data = {
@@ -62,7 +66,7 @@ class Slider extends Component {
 
       return (
         <div className="slider">
-          {items}
+          { this.state.loading ? null : items }
         </div>
       )
     }
