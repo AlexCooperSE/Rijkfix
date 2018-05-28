@@ -5,18 +5,33 @@ html {
   width: 100%;
 }
 body {
-  padding: 10px;
+  padding: 20px;
   background-color:rgba(0,0,0,.97);
 }
 .main {
   width: 100%;
 }
-.row-container {
-  border: 1px solid white;
+.featured {
   width: 100%;
-  height: 14.0625vw;
+  height: 40vw;
+  margin-bottom: 3vw;
+}
+.featured-img {
+  height: 100%;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+}
+.row-container {
+  width: 100%;
+  height: 18vw;
   overflow: scroll;
   background-color:rgba(0,0,0,.97);
+}
+.row-label {
+  margin-bottom: 2vw;
+  color: #fff;
+  font-weight: 700;
 }
 .row {
   margin: 1.28125vw 0;
@@ -54,6 +69,8 @@ body {
   left: 0px;
   z-index: 2;
   color: #fff;
+  font-size: 75%;
+  font-weight: 300;
   visibility: hidden;
 }
 .item:hover {
@@ -86,9 +103,11 @@ body {
      -moz-transform: scaleX(-1);
        -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
           transform: scaleX(-1);
-      filter: FlipH;
-  -ms-filter: "FlipH";
+  -webkit-filter: FlipH;
+          filter: FlipH;
+      -ms-filter: "FlipH";
 }
 .item-error .item-error-label {
   position: absolute;

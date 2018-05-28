@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import debugRender from 'react-render-debugger'
 
 import Item from './Item'
 import NoItem from './NoItem'
@@ -72,4 +71,4 @@ class Slider extends Component {
     }
 }
 
-export default debugRender(Slider)
+export default Slider
