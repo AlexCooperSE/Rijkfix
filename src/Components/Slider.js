@@ -9,12 +9,16 @@ class Slider extends Component {
     state = {
       objects: [],
       loading: true
-    };
+    }
 
     apiKey = process.env.REACT_APP_RIJKS_API_KEY;
 
     componentDidMount() {
       this.getObjects(this.props.query)
+    }
+
+    onItemClick = (itemId) => {
+      this.props.onItemClick(itemId)
     }
 
     getObjects = (query) => {
@@ -56,10 +60,12 @@ class Slider extends Component {
       if (objects.length)
         items = objects.map(object =>
           <Item
+            key={object.id}
+            objectId={object.id}
             title={object.title}
             artist={object.artist}
             img={object.img}
-            key={object.id}
+            onItemClick={this.onItemClick}
           />
         )
 

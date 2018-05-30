@@ -8,6 +8,13 @@ body {
   padding: 20px;
   background-color:rgba(0,0,0,.97);
 }
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+}
 .main {
   width: 100%;
 }
