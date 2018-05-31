@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
+import Header from './Components/Header'
 import Featured from './Components/Featured'
 import FlyoutContainer from './Components/FlyoutContainer'
 
@@ -65,7 +66,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="main">
-        <div className="header"></div>
+        <Header />
         <Featured {...this.featured} />
         {this.contentRows}
       </div>
