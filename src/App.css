@@ -34,7 +34,7 @@ a:hover {
   background-size: cover;
 }
 .featured-text {
-  width: 33%;
+  width: 40%;
   position: relative;
   bottom: 35vw;
   left: 5vw;
@@ -42,27 +42,27 @@ a:hover {
   color: #fff;
 }
 .featured-artist {
-  font-size: 200%;
+  font-size: 4vw;
   font-weight: 700;
   margin-bottom: 1vw;
 }
 .featured-title {
-  font-size: 150%;
+  font-size: 2vw;
   font-weight: 400;
   margin-bottom: 0.5vw;
 }
 .featured-desc {
-  font-size: 100%;
+  font-size: 1.5vw;
   font-weight: 300;
   margin-bottom: 1em;
 }
 .featured-date {
-  font-size: 100%;
+  font-size: 1.5vw;
   font-weight: 300;
   margin-bottom: 2vw;
 }
 .featured-materials {
-  font-size: 100%;
+  font-size: 1.5vw;
   font-weight: 300;
   font-style: italic;
   margin-bottom: 1em;
@@ -119,6 +119,7 @@ a:hover {
   visibility: hidden;
 }
 .item:hover {
+  cursor: pointer;
   border: 2px solid white;
   -webkit-transform:scale(1.25);
       -ms-transform:scale(1.25);
@@ -130,6 +131,9 @@ a:hover {
 .item:hover ~ .item {
   -webkit-transform: translate3d(5.125vw, 0, 0);
           transform: translate3d(5.125vw, 0, 0);
+}
+.item:active {
+  border: 2px solid white;
 }
 .item-error {
   width: 20%;
@@ -161,4 +165,37 @@ a:hover {
   left: 0px;
   z-index: 2;
   color: #fff;
+}
+
+@media only screen and (max-width: 800px) {
+  .featured-text {
+    width: 90%;
+  }
+  .featured-artist {
+    font-size: 6vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .featured-title {
+    font-size: 4.5vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .featured-date {
+    font-size: 3vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .featured-desc {
+    font-size: 0px;
+  }
+  .featured-materials {
+    font-size: 0px;
+  }
+  .item .item-label {
+    font-size: 0px;
+  }
 }
