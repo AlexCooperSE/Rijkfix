@@ -6,5 +6,8 @@
         "render"
       ]
     }]
-  }
+  },
+  "env": {
+      "jest": true
+    }
 }

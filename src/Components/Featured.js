@@ -32,7 +32,6 @@ class Featured extends Component {
       const baseUri = 'https://www.rijksmuseum.nl/api/en/collection'
       const defaults = 'format=json&imgonly=true'
       const requestUri = `${baseUri}/${item}?key=${this.apiKey}&${defaults}`
-      console.log(requestUri)
       axios.get(requestUri)
         .then(response => {
           const object = response.data.artObject
@@ -45,7 +44,6 @@ class Featured extends Component {
             desc:   this.previewText(object.plaqueDescriptionEnglish),
             materials: Object.values(object.materials).join(', ')
           }
-          console.log(object)
           this.setState({
             data,
             loading: false

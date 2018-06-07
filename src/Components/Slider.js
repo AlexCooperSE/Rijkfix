@@ -25,7 +25,6 @@ class Slider extends Component {
       const baseUri = 'https://www.rijksmuseum.nl/api/en/collection'
       const defaults = 'format=json&imgonly=true'
       const requestUri = `${baseUri}?key=${this.apiKey}&${defaults}&${query}`
-      console.log(requestUri)
       axios.get(requestUri)
         .then(response => {
           const objects = response.data.artObjects.map(artObject => {
@@ -35,10 +34,8 @@ class Slider extends Component {
               artist: artObject.principalOrFirstMaker,
               img:    artObject.webImage.url
             }
-            console.log(artObject)
             return data
           })
-          console.log(objects)
           this.setState({
             objects,
             loading: false

@@ -9,15 +9,17 @@ class RowContainer extends Component {
 
   render() {
     return (
-      <div className="row-container">
+      <div className="row-container-wrapper">
         <div className="row-label">
           {this.props.category}
         </div>
-        <div className="row">
-          <Slider
-            key={`slider${this.props.index}`}
-            query={this.props.query}
-            onItemClick={this.onItemClick} />
+        <div className="row-container">
+          <div className="row">
+            <Slider
+              key={`slider${this.props.index}`}
+              query={this.props.query}
+              onItemClick={this.onItemClick} />
+          </div>
         </div>
       </div>
     )

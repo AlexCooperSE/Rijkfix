@@ -69,12 +69,12 @@ a:hover {
 }
 .row-container {
   width: 100%;
-  height: 18vw;
+  height: 15.5vw;
   overflow: scroll;
   background-color:rgba(0,0,0,.97);
 }
 .row-label {
-  margin-bottom: 2vw;
+  margin-bottom: 0.25vw;
   color: #fff;
   font-weight: 700;
 }

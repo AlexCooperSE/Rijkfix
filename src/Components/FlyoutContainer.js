@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import RowContainer from './RowContainer'
 import Featured from './Featured'
-import debugRender from 'react-render-debugger'
 
 class FlyoutContainer extends Component {
 
@@ -9,7 +8,12 @@ class FlyoutContainer extends Component {
     featured: null
   }
 
+  activateFlyout = () => {
+    this.props.activateFlyout(this.props.id)
+  }
+
   onItemClick = (itemId) => {
+    this.activateFlyout()
     this.setState({
       featured: { item: itemId, pos: 'center' }
     })
@@ -24,7 +28,9 @@ class FlyoutContainer extends Component {
           query={this.props.query}
           onItemClick={this.onItemClick} />
         {
-          this.state.featured !== null ?
+          this.state.featured !== null &&
+          this.props.active === this.props.id
+            ?
             <div className="flyout">
               <Featured {...this.state.featured} />
             </div>
@@ -36,4 +42,4 @@ class FlyoutContainer extends Component {
   }
 }
 
-export default debugRender(FlyoutContainer)
+export default FlyoutContainer

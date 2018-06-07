@@ -3,9 +3,13 @@ import React, { Component } from 'react'
 import './App.css'
 import Header from './Components/Header'
 import Featured from './Components/Featured'
-import FlyoutContainer from './Components/FlyoutContainer'
+import ContentRows from './Components/ContentRows'
 
 export default class App extends Component {
+
+  state = {
+    activeFlyout: null
+  }
 
   featuredList = [
     { item: 'SK-C-5', pos: 'center' },
@@ -27,48 +31,41 @@ export default class App extends Component {
     {
       category: 'Rembrandt',
       params: { q: 'Rembrandt van Rijn', type: 'painting', s: 'relevance' }
+    },
+    {
+      category: 'Vermeer',
+      params: { q:'Jonannes Vermeer', type: 'painting', s: 'relevance' }
+    },
+    {
+      category: '18th Century',
+      params: { 'f.dating.period': 18, 'type': 'painting', 's': 'relevance' }
+    },
+    {
+      category: '19th Century',
+      params: { 'f.dating.period': 19, 'type': 'painting', 's': 'relevance' }
+    },
+    {
+      category: '20th Century',
+      params: { 'f.dating.period': 20, 'type': 'painting', 's': 'relevance' }
     }
-    // ,
-    // {
-    //   category: 'Vermeer',
-    //   params: { q:'Jonannes Vermeer', type: 'painting', s: 'relevance' }
-    // },
-    // {
-    //   category: '18th Century',
-    //   params: { 'f.dating.period': 18, 'type': 'painting', 's': 'relevance' }
-    // },
-    // {
-    //   category: '19th Century',
-    //   params: { 'f.dating.period': 19, 'type': 'painting', 's': 'relevance' }
-    // },
-    // {
-    //   category: '20th Century',
-    //   params: { 'f.dating.period': 20, 'type': 'painting', 's': 'relevance' }
-    // }
   ]
 
-  makeQueryParameters = (obj) => {
-    const encode = encodeURIComponent
-    return Object.keys(obj)
-      .map(key => `${encode(key)}=${encode(obj[key])}`)
-      .join('&')
+  activateFlyout = (id) => {
+    if (this.state.activeFlyout !== id)
+      this.setState({
+        activeFlyout: id
+      })
   }
-
-  contentRows = this.queryObjects.map((queryObject,index) => {
-    console.log(this.makeQueryParameters(queryObject))
-    return <FlyoutContainer
-      key={`flyoutContainer${index}`}
-      id={`flyoutContainer${index}`}
-      category={queryObject.category}
-      query={this.makeQueryParameters(queryObject.params)} />
-  })
 
   render() {
     return (
       <div className="main">
         <Header />
         <Featured {...this.featured} />
-        {this.contentRows}
+        <ContentRows
+          rows={this.queryObjects}
+          active={this.state.activeFlyout}
+          activateFlyout={this.activateFlyout} />
       </div>
     )
   }
